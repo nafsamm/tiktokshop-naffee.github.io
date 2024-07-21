@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Categories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center; /* Center items horizontally */
+            margin-top: 20px;
+        }
+
+        .category-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px; /* Increased padding for touch targets */
+            background-color: #007bff; /* Blue background color */
+            color: white;
+            text-decoration: none;
+            border-radius: 8px; /* Rounded corners */
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 300px; /* Maximum width for desktop */
+            text-align: center; /* Center text horizontally */
+        }
+
+        .category-link:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+
+        .category-link i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .category-link {
+                max-width: 100%; /* Full width on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Product Categories</h1>
+
+        <section class="categories">
+            <a href="categories/fashion_apparel.html" class="category-link">
+                <i class="fas fa-tshirt"></i> Fashion and Apparel
+            </a>
+            <a href="categories/electronics_gadgets.html" class="category-link">
+                <i class="fas fa-mobile-alt"></i> Electronics and Gadgets
+            </a>
+            <a href="categories/health_beauty.html" class="category-link">
+                <i class="fas fa-spa"></i> Health and Beauty
+            </a>
+            <a href="categories/home_living.html" class="category-link">
+                <i class="fas fa-home"></i> Home and Living
+            </a>
+            <a href="categories/sports_outdoors.html" class="category-link">
+                <i class="fas fa-bicycle"></i> Sports and Outdoors
+            </a>
+            <a href="categories/books_media.html" class="category-link">
+                <i class="fas fa-book"></i> Books, Media, and Entertainment
+            </a>
+            <a href="categories/automotive.html" class="category-link">
+                <i class="fas fa-car"></i> Automotive
+            </a>
+            <a href="categories/food_beverages.html" class="category-link">
+                <i class="fas fa-coffee"></i> Food and Beverages
+            </a>
+            <a href="categories/baby_kids.html" class="category-link">
+                <i class="fas fa-baby"></i> Baby and Kids
+            </a>
+            <a href="categories/office_supplies.html" class="category-link">
+                <i class="fas fa-folder"></i> Office Supplies
+            </a>
+        </section>
+    </div>
+</body>
+</html>

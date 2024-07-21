@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Electronics and Gadgets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-bar select {
+            width: 25%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 20px;
+            margin: 10px;
+            width: calc(25% - 20px); /* Four products per row with margin */
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px; /* Set a fixed height for consistency */
+            object-fit: cover; /* Maintain aspect ratio and cover container */
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-info {
+            font-size: 0.9rem;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            display: inline-block;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            color: #4CAF50; /* Green color for price */
+            margin-top: 5px;
+            font-weight: bold; /* Make price text bold */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .buy-button, .view-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px 0;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: calc(50% - 10px); /* Ensure buttons take half the width */
+            max-width: 200px; /* Limit maximum width for better responsiveness */
+        }
+
+        .buy-button {
+            background-color: #4CAF50;
+        }
+
+        .buy-button:hover {
+            background-color: #45a049;
+        }
+
+        .view-button {
+            background-color: #007bff;
+        }
+
+        .view-button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 992px) {
+            .product-card {
+                width: calc(33.33% - 20px); /* Three products per row on smaller screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-card {
+                width: calc(50% - 20px); /* Two products per row on tablets */
+            }
+
+            .buy-button, .view-button {
+                width: 100%; /* Buttons take full width on smaller screens */
+                max-width: none; /* Reset max-width on smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-card {
+                width: calc(50% - 20px); /* Two products per row on mobile screens */
+            }
+
+            .buy-button, .view-button {
+                width: 100%; /* Buttons take full width on mobile screens */
+                max-width: none; /* Reset max-width on mobile screens */
+            }
+
+            .product-card img {
+                height: 120px; /* Increase max-height for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-card {
+                width: calc(50% - 20px); /* Two products per row on smaller mobile screens */
+            }
+
+            .buy-button, .view-button {
+                width: 100%; /* Buttons take full width on smaller mobile screens */
+                max-width: none; /* Reset max-width on smaller mobile screens */
+            }
+
+            .product-card img {
+                height: 120px; /* Adjust max-height further for very small screens */
+            }
+        }
+        .back-icon {
+            position: absolute;
+            top: 10px; /* Adjust top position as needed */
+            left: 10px; /* Adjust left position as needed */
+            font-size: 1.5rem;
+            color: #007bff;
+            cursor: pointer;
+            transition: color 0.3s ease;
+
+        }
+
+        .back-icon:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <i class="fas fa-arrow-left back-icon" onclick="window.location.href='../categories.html'"></i>
+        <h1>Electronics and Gadgets</h1>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <select id="priceFilter">
+                <option value="">Filter by price</option>
+                <option value="0-10">0 - 10</option>
+                <option value="10-20">10 - 20</option>
+                <option value="20-30">20 - 30</option>
+                <option value="30-50">30 - 50</option>
+                <option value="50+">50</option>
+            </select>
+        </div>
+
+        <div class="products" id="products">
+            <div class="product-card" data-name="Ascorbic Acid" data-price="10">
+                <img src="../products/health_beauty/ascorbic/abovetk1.jpg" alt="Ascorbic Acid">
+                <h3>Ascorbic Acid</h3>
+                <p class="product-price">10</p>
+                <div class="button-container">
+                    <a href="https://www.tiktok.com/@naffeeshop/video/7389832457077460232?is_from_webapp=1&sender_device=pc&web_id=7386502539430430216" class="buy-button">Buy</a>
+                    <a href="../products/health_beauty/ascorbic/ascorbic.html" class="view-button">View</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Product B" data-price="15">
+                <img src="../products/health_beauty/sa.jpg" alt="Product B">
+                <h3>Product B</h3>
+                <p class="product-price">15</p>
+                <div class="button-container">
+                    <a href="#" class="buy-button">Buy</a>
+                    <a href="productB.html" class="view-button">View</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Product C" data-price="20">
+                <img src="../products/health_beauty/product3.jpg" alt="Product C">
+                <h3>Product C</h3>
+                <p class="product-price">20</p>
+                <div class="button-container">
+                    <a href="#" class="buy-button">Buy</a>
+                    <a href="productC.html" class="view-button">View</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Product D" data-price="25">
+                <img src="../products/health_beauty/product4.jpg" alt="Product D">
+                <h3>Product D</h3>
+                <p class="product-price">25</p>
+                <div class="button-container">
+                    <a href="#" class="buy-button">Buy</a>
+                    <a href="productD.html" class="view-button">View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', filterProducts);
+        document.getElementById('priceFilter').addEventListener('change', filterProducts);
+
+        function filterProducts() {
+            const searchValue = document.getElementById('searchInput').value.toLowerCase();
+            const priceValue = document.getElementById('priceFilter').value;
+            const products = document.querySelectorAll('.product-card');
+
+            products.forEach(product => {
+                const productName = product.getAttribute('data-name').toLowerCase();
+                const productPrice = parseFloat(product.getAttribute('data-price'));
+
+                let priceMatch = true;
+                if (priceValue) {
+                    const [min, max] = priceValue.split('-').map(Number);
+                    priceMatch = !max ? productPrice >= min : productPrice >= min && productPrice <= max;
+                }
+
+                if (productName.includes(searchValue) && priceMatch) {
+                    product.style.display = '';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            // Adjust alignment of product cards
+            adjustProductAlignment();
+        }
+
+        function adjustProductAlignment() {
+            const products = document.getElementById('products');
+            const productCards = Array.from(products.querySelectorAll('.product-card'));
+            productCards.forEach(card => products.appendChild(card)); // Reappend to maintain order
+        }
+    </script>
+</body>
+</html>
